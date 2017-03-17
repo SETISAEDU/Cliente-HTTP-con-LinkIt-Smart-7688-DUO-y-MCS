@@ -6,7 +6,7 @@ Al poseer una arquitectura similar a la del Arduino Yún, la LinkIt Smart 7688 D
 
 Este ejemplo es un ejemplo sencillo que conecta LinkIt Smart 7688 Duo a un dispositivo MCS con la librería Bridge de Arduino.
 
-Dado que LinkIt Smart 7688 Duo es algo compatible con la librería ** Bridge ** de Arduino, podemos usar la librería de bridge para conectarnos a MCS con IDE de Arduino.
+Dado que LinkIt Smart 7688 Duo es algo compatible con la librería **Bridge** de Arduino, podemos usar la librería de bridge para conectarnos a MCS con IDE de Arduino.
 
 ## Habilitando la librería Bridge
 
