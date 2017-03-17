@@ -17,7 +17,7 @@ uci set yunbridge.config.disable='0'
 uci commit
 reboot
 ```
-Solo es necesario llevar esto a cabo una vez. 
+Solo es necesario llevar a cabo esto una vez. 
 
 # Ajustando MCS
 
