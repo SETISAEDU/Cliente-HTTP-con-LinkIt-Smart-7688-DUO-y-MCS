@@ -38,3 +38,7 @@ Por favor, refierase a la guía de usuario del desarrollador para ajustar apropi
 # Sketch de Arduino
 
 Subimos de el Arduino IDE el sktech llamado `LinkItDHT11_MCS.ino` Este código hará las lecturas de temperatura y humedad del sensor DHT11 y los subira a MCS cada dos segundos.
+
+# Freeboard
+[Freeboard](https://freeboard.io/) es una muy buena alternativa visual en donde podremos apreciar nuestras variables subidas a la nube. Cuenta con muchas maneras de desplegar información ya sea de temperatura, humedad, posición geosatelital y hasta videostreaming desde una sola consola. 
+![Proyecto en Freeboard](https://raw.githubusercontent.com/SETISAEDU/Cliente-HTTP-con-LinkIt-Smart-7688-DUO-y-MCS/master/Freeboard.jpg)
