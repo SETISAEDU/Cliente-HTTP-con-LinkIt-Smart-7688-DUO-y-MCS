@@ -24,6 +24,7 @@ Solo es necesario llevar a cabo esto una vez.
 [Mediatek Cloud Sandbox](https://mcs.mediatek.com/) es un servidor Web que nos permite crear stream de datos que son subidos por la LinkIt Smart 7688 DUO y así poder monitorear los diferentes datos subidos a dicho servidor. 
 
 Prepare y ajuste el prototipo MCS y dispositivos de prueba siguienndo el presente tutorial.
+
 ![Mediatek Cloud Sandbox](https://raw.githubusercontent.com/SETISAEDU/Cliente-HTTP-con-LinkIt-Smart-7688-DUO-y-MCS/master/Mediatek%20Cloud%20Sandbox.jpg)
 
 # Esquema de conexión del proyecto
@@ -41,4 +42,5 @@ Subimos de el Arduino IDE el sktech llamado `LinkItDHT11_MCS.ino` Este código h
 
 # Freeboard
 [Freeboard](https://freeboard.io/) es una muy buena alternativa visual en donde podremos apreciar nuestras variables subidas a la nube. Cuenta con muchas maneras de desplegar información ya sea de temperatura, humedad, posición geosatelital y hasta videostreaming desde una sola consola. 
+
 ![Proyecto en Freeboard](https://raw.githubusercontent.com/SETISAEDU/Cliente-HTTP-con-LinkIt-Smart-7688-DUO-y-MCS/master/Freeboard.jpg)
