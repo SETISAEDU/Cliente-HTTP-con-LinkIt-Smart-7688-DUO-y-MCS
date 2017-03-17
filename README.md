@@ -16,7 +16,6 @@ Utilizando los siguientes comandos vamos a habilitar la librería Bridge on la L
 uci set yunbridge.config.disable='0'
 uci commit
 reboot
-
 ```
 Solo es necesario llevar esto a cabo una vez. 
 
