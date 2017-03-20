@@ -1,20 +1,26 @@
+// Librerías de comunicación entre el MT7688 y el ATmega32u4
 #include <Bridge.h>
 #include <HttpClient.h>
 #include <BridgeClient.h>
 
+// Librería del DHT11
 #include "DHT.h"
 
-#define DEVICEID "CHANGE_TO_DEVICE_ID" // Introduce tu deviceId
-#define DEVICEKEY "CHANGE_TO_DEVICE_KEY" // Introduce tu deviceKey
+// Variables de definición para el Mediatek Cloud Sandbox
+#define DEVICEID "DmN8XE3D" // Introduce tu deviceId
+#define DEVICEKEY "7NdXUJNfqUpqZW6Z" // Introduce tu deviceKey
 #define SITE_URL "api.mediatek.com"
 
+// Pin de datos y el tipo de sensor a utilizar
 #define DHTPIN 2
 #define DHTTYPE DHT11   // DHT 11
 
+// Número de pines para los LEDs indicadores
 #define Conectado 4
 #define Reporte 5
 #define Subiendo 6
 
+// Variables globales de trabajo
 static unsigned long beat = 0;
 static String commandServer;
 static int commandPort = 0;
@@ -24,23 +30,22 @@ float h;
 float t;
 static unsigned long measure = 0;
 
-// This will be used to connect to command server
+// Esto será utilizado para conectar al servidor
 BridgeClient bc;
 
+// Configuración del sensor DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(Conectado, OUTPUT);
   pinMode(Reporte, OUTPUT);
   pinMode(Subiendo, OUTPUT);
 
-  //Serial.begin(9600);
+  // Inicialización del bridge y el DHT11
   Bridge.begin();
   dht.begin();
 
-  //while (!Serial) delay(1000);
-
+  // Rutina de conexión al servidor
   getCommandServer();
   beat = millis();
   measure = millis();
@@ -63,6 +68,7 @@ void getCommandServer()
   const int sep = resp.indexOf(',');
   if (-1 == sep)
   {
+    // Una vez establecida la conexión enciende el LED verde
     digitalWrite(Conectado, LOW);
     return;
   }
@@ -70,7 +76,7 @@ void getCommandServer()
 }
 
 void heartBeat(Client &c) {
-  // Send a heart beat data;
+  // Manda un dato de Heart beat
   // format reference: https://mcs.mediatek.com/resources/latest/api_references/#get-connection
   static const char* heartbeat = DEVICEID "," DEVICEKEY ",0";
   c.println(heartbeat);
@@ -80,8 +86,8 @@ void heartBeat(Client &c) {
 
 void loop() {
 
-  // send heart beat for every 5 seconds;
-  // or our connection will be closed by command server.
+  // Mnada un heart beat cada cinco segundos;
+  // o la conexión será cerrada por el servidor.
   if (5000 < (millis() - beat)) {
     heartBeat(bc);
     beat = millis();
@@ -90,7 +96,7 @@ void loop() {
     digitalWrite(Reporte, LOW);
   }
 
-  // POST LED value back to MCS.
+  // Sube los valores de la temperatura y la humedad al MCS.
   if (2000 < (millis() - measure)) {
     h = dht.readHumidity();
     t = dht.readTemperature();
@@ -104,8 +110,6 @@ void loop() {
 }
 
 void upload_measure1(int temp) {
-  // We update the LED_Display data value
-  // to reflect the status of the board.
 
   String str_temp = String(temp);
   String upload_temp = "DHT11_Temp,," + str_temp;
@@ -134,8 +138,6 @@ void upload_measure1(int temp) {
 }
 
 void upload_measure2(int hum) {
-  // We update the LED_Display data value
-  // to reflect the status of the board.
 
   String str_hum = String(hum);
   String upload_hum = "DHT11_Hum,," + str_hum;
