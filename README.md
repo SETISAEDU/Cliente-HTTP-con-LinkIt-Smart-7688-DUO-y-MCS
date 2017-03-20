@@ -23,7 +23,7 @@ Solo es necesario llevar a cabo esto una vez.
 
 [Mediatek Cloud Sandbox](https://mcs.mediatek.com/) es un servidor Web que nos permite crear stream de datos que son subidos por la LinkIt Smart 7688 DUO y así poder monitorear los diferentes datos subidos a dicho servidor. 
 
-Prepare y ajuste el prototipo MCS y dispositivos de prueba siguienndo el presente [tutorial](https://mcs.mediatek.com/resources/latest/tutorial).
+Prepare y ajuste el prototipo MCS y dispositivos de prueba siguiendo el presente [tutorial](https://mcs.mediatek.com/resources/latest/tutorial).
 
 ![Mediatek Cloud Sandbox](https://raw.githubusercontent.com/SETISAEDU/Cliente-HTTP-con-LinkIt-Smart-7688-DUO-y-MCS/master/Mediatek%20Cloud%20Sandbox.jpg)
 
