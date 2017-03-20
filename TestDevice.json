@@ -1,0 +1,161 @@
+{
+  "prototype": {
+    "prodName": "Estación DHT11",
+    "description": "Utilizando la LinkIt Smart 7688 DUO y el DHT11 montaremos una pequeña estación de  monitoreo de temperatura y humedad.",
+    "developmentNote": null,
+    "prodAppTypeId": 62,
+    "prodRlsStatusTypeId": 1,
+    "version": "1.0",
+    "displayConfigs": [
+      {
+        "format": {
+          "unitTypes": 10
+        },
+        "displayType": 4,
+        "displayOrder": 1,
+        "streamTypeId": 1,
+        "dataChnIds": [
+          "DHT11_Temp"
+        ],
+        "showHistory": false,
+        "configs": {
+          "graph": "line",
+          "history": true,
+          "format": {
+            "unitTypes": {
+              "displayName": "UnitTypes",
+              "type": "category-units",
+              "required": true,
+              "name": "unitTypes"
+            }
+          }
+        }
+      },
+      {
+        "format": {
+          "unitTypes": 39
+        },
+        "displayType": 4,
+        "displayOrder": 2,
+        "streamTypeId": 1,
+        "dataChnIds": [
+          "DHT11_Hum"
+        ],
+        "showHistory": false
+      }
+    ],
+    "saleReleaseDate": null,
+    "saleDiscontinuousDate": null,
+    "isLongConnectionNeeded": true,
+    "isSerialNeeded": false,
+    "isInterpreterCloudNeeded": false,
+    "status": true,
+    "prodImgURL": "product/58e4e3e3-bec9-4ca4-b4d1-a3ea5b7a3367.jpg",
+    "prodDesc": "Utilizando la LinkIt Smart 7688 DUO y el DHT11 montaremos una pequeña estación de  monitoreo de temperatura y humedad.",
+    "chipId": 4
+  },
+  "dataChannels": [
+    {
+      "dataChnId": "DHT11_Temp",
+      "name": "Temperatura",
+      "description": "Variable que contendrá la temperatura medida",
+      "channelType": {
+        "dataChnTypeId": 1,
+        "name": "Integer"
+      },
+      "streamId": 29905,
+      "format": {
+        "unitTypes": 10
+      },
+      "isHidden": false,
+      "isControllable": false,
+      "unitType": {
+        "id": 10,
+        "name": "degree Celsius"
+      }
+    },
+    {
+      "dataChnId": "DHT11_Hum",
+      "name": "Humedad",
+      "description": "Variable que contendrá la humedad medida",
+      "channelType": {
+        "dataChnTypeId": 1,
+        "name": "Integer"
+      },
+      "streamId": 29906,
+      "format": {
+        "unitTypes": 39
+      },
+      "isHidden": false,
+      "isControllable": false,
+      "unitType": {
+        "id": 39,
+        "name": "percent"
+      }
+    }
+  ],
+  "triggerActions": [
+    {
+      "name": "Temperatura Baja",
+      "description": "Indica si el sensor DHT11 ha medido una temperatura que va más allá de la ajustada en este criterio de acción",
+      "defaultRepeatNtfCount": 1,
+      "isDefaultOn": true,
+      "isMandatory": true,
+      "isEditable": true,
+      "isActivated": true,
+      "ntfcrits": [
+        {
+          "streamId": 29905,
+          "operand": "<",
+          "defaultThresholdValue": 15,
+          "dataChnId": "DHT11_Temp",
+          "name": "Temperatura",
+          "description": "Variable que contendrá la temperatura medida",
+          "format": {
+            "unitTypes": 10
+          },
+          "unitTypeId": 10
+        }
+      ],
+      "ntfmths": [
+        {
+          "ntfMthTypeId": 1,
+          "title": "Temperatura Baja",
+          "content": "El dispositivo [${deviceId},${deviceName}] indica que la temperatura ha bajado más allá del valor establecido con una temperatura de ${value}° C",
+          "name": "Email"
+        }
+      ]
+    },
+    {
+      "name": "Temperatura Alta",
+      "description": "Indica si el sensor DHT11 ha medido una temperatura que va más allá de la ajustada en este criterio de acción",
+      "defaultRepeatNtfCount": 1,
+      "isDefaultOn": true,
+      "isMandatory": true,
+      "isEditable": true,
+      "isActivated": true,
+      "ntfcrits": [
+        {
+          "streamId": 29905,
+          "operand": ">",
+          "defaultThresholdValue": 40,
+          "dataChnId": "DHT11_Temp",
+          "name": "Temperatura",
+          "description": "Variable que contendrá la temperatura medida",
+          "format": {
+            "unitTypes": 10
+          },
+          "unitTypeId": 10
+        }
+      ],
+      "ntfmths": [
+        {
+          "ntfMthTypeId": 1,
+          "title": "Temperatura Alta",
+          "content": "El dispositivo [${deviceId},${deviceName}] indica que la temperatura ha superado el valor establecido con una temperatura de ${value}° C",
+          "name": "Email"
+        }
+      ]
+    }
+  ]
+}
